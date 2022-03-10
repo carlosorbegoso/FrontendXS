@@ -1,0 +1,238 @@
+<app-menu></app-menu>
+<div class="container mb-2 p-1 " style="border-radius: 5px; margin-top: 52px;">
+	<!-- ENCABEZADO DE PAGINA -->
+	<div class="card ">
+		<div class="car-body ">
+			<div class="input-group input-group-sm ">
+				<button class="btn  mr-1 " type="button">
+					<i class="fas fa-fw fa-list"></i>
+				</button>
+				<label class="form-control ">
+					<a href="javascript:void(0);"><i class="fa fa-fw fa-home"></i> </a>
+					<span class="d-none d-sm-inline">
+						CONTROL /
+					</span>
+
+					<span class="" id="lblTitulo">TRABAJADORES</span>
+					<span style="float:right;line-height:20px;">
+						<span class="fa fa-fw fa-globe hidden-xs "></span>
+					</span>
+				</label>
+				<div class="btn-group btn-group-sm">
+					<button class="btn btn-outline-primary border-secondary ml-1 text-dark btn-action"  data-action="nuevo" title="Nuevo" routerLink="/trabajador/nuevo" >
+						<span class="fa fa-fw fa-file" ></span>
+					</button>
+					<button class="btn btn-outline-primary  border-secondary ml-1 text-dark btn-action"
+						routerLink="/trabajador/listar" title="Buscar">
+						<span class="fa fa-fw fa-search"></span>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- TRABAKADPR FORMULARIO -->
+	<span class="nsPanel">
+		<div class="container-sm p-1">
+			<div class="card">
+				<div class="card-header p-1">
+					<div class="input-group input-group-sm">
+						<button class="btn btn-outline-secondary border-white" type="button" title="">
+							<span class="fas fa-fw fa-user-alt fa-lg"></span>
+						</button>
+					
+						 
+						<label class="form-control ">FORMULARIO</label>
+						<button  (click)="IngresarActualizar(actualizar)" value="1"  class="btn btn-outline-primary border-secondary ml-1 text-dark btn-action"  type="button" title="Guardar">
+							<i class="fa fa-fw fa-save"></i>
+						</button>
+					</div>
+				</div>
+
+				<div class="card-body p-2" >
+					<div class="" style="overflow-y: auto;" >
+						<form id="frmTrabajadores" class="form "style="height: 70vh;" >
+							<div class="container">
+								<!-- Datos personales -->
+								<h6>DATOS PERSONALES</h6>
+								<hr>
+								<div class="row mt-2">
+									<div class="col-lg-2">
+										<div class="form-group input-group-sm">
+											<label> CODIGO:</label>
+											<input class="form-control" type="text" id="trabCodigo" name="trabCodigo" [(ngModel)]="trabajadores.trabCodigo" placeholder="CODIGO" autocomplete="off" />
+										</div>
+									</div>
+									<div class="col-lg-2">
+										<div class="form-group input-group-sm">
+											<label> APELLIDO  PATERNO:</label>
+											<input class="form-control" name="trabApellidoPaterno" id="trabApellidoPaterno" [(ngModel)]="trabajadores.trabApellidoPaterno"  type="text" placeholder="APELLIDO PATERNO" autocomplete="off" />
+										</div>
+									</div>
+									<div class="col-lg-2">
+										<div class="form-group input-group-sm">
+											<label> APELLIDO  MATERNO:</label>
+											<input class="form-control" name="trabApellidoMaterno" id="trabApellidoMaterno" [(ngModel)]="trabajadores.trabApellidoMaterno" type="text" placeholder="APELLIDO MATERNO" autocomplete="off"/>
+										</div>
+									</div>
+									<div class="col-lg-2">
+										<div class="form-group input-group-sm">
+											<label> NOMBRES:</label>
+											<input class="form-control" name="trabNombre" id="trabNombre" [(ngModel)]="trabajadores.trabNombre" type="text" placeholder="NOMBRES" autocomplete="off" />
+										</div>
+									</div>
+									<div class="col-lg-2">
+										<div class="form-group input-group-sm">
+											<label> ESTADO CIVIL:</label>
+											<select class="form-select" id="trabEstadoCivil" name="trabEstadoCivil" [(ngModel)]="trabajadores.trabEstadoCivil" >
+												<option value="">SELECCIONE</option>
+												<option value="Soltero(a)">Soltero(a)</option>
+												<option value="Casado(a)">Casado(a)</option>
+												<option value="Conviviente(a)">Conviviente(a)</option>
+												<option value="Viudo(a)">Viudo(a)</option>
+											</select>
+								
+										</div>
+									</div>
+									<div class="col-lg-2">
+										<div class="form-group input-group-sm">
+											<label> ESTADO</label>
+											<div class="input-group input-group-sm">
+												<select name="trabEstado" id="trabEstado" [(ngModel)]="trabajadores.trabEstado" class="form-select">
+													<option value="activo" selected>ACTIVO</option>
+													<option value="inactivo">INACTIVO</option>
+													<option value="suspendido">SUSPENDIDO</option>
+												</select>
+												
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row mt-2">
+									<div class="col-lg-2">
+										<div class="form-group input-group-sm">
+											<label> TIPO DOC:</label>
+											<select  name="trabTipoDoc" id="trabTipoDoc" [(ngModel)]="trabajadores.trabTipoDoc" class="form-select" >
+												<option value="">SELECCIONE</option>
+												<option value="DNI">DNI</option>
+												<option value="PPT">PPT</option>
+												<option value="PASAPORTE">PASAPORTE</option>
+											</select>
+										</div>
+									</div>
+									<div class="col-lg-3">
+										<div class="form-group input-group-sm">
+											<label> NUMERO DOC:</label>
+											<input name="trabNroDoc" id="trabNroDoc" [(ngModel)]="trabajadores.trabNroDoc" type="text" maxlength="8" class="form-control" >
+										</div>
+									</div>
+									<div class="col-lg-3">
+										<label>SEXO</label>
+										<div class="input-group input-group-sm">
+											<select id="trabSexo" name="trabSexo" [(ngModel)]="trabajadores.trabSexo" class="form-select">
+												<option value="">SELECCIONE</option>
+												<option value="Masculino">MASULINO</option>
+												<option value="Femenino">FEMENINO</option>
+											</select>
+										</div>
+									</div>
+									<div class="col-lg-4">
+										<label>FOTO</label>
+										<div class="input-group input-group-sm">
+											<input class="form-control" type="file" >
+										</div>
+									</div>
+								</div>
+							
+								<h6 class="mt-3">DATOS DE NACIEMIETO Y DOMICILIO </h6>
+								<hr>
+								<div class="row mt-2">
+									<div class="col-lg-2">
+										<label for="">FECHA NACIEMETO</label>
+										<div class="input-group input-group-sm">
+											<input class="form-control" id="trabFechaNacimiento" name="trabFechaNacimiento" [(ngModel)]="trabajadores.trabFechaNacimiento" type="date" >
+										</div>
+									</div>
+									<div class="col-lg-2">
+										<label for="">DEPARTAMENTO</label>
+										<div class="input-group input-group-sm">
+											<!-- <select class="form-select" id="trabCodDepartamento" name="trabCodDepartamento" [(ngModel)]="trabajadores.trabCodDepartamento" ></select> -->
+										</div>
+									</div>
+									<div class="col-lg-2">
+										<label for="">PROVINCIA</label>
+										<div class="input-group input-group-sm">
+											<!-- <select class="form-select" id="trabCodProvincia" name="trabCodProvincia" [(ngModel)]="trabajadores.trabCodProvincia" ></select> -->
+										</div>
+									</div>
+									<div class="col-lg-2">
+										<label for="">DISTRITO</label>
+										<div class="input-group input-group-sm">
+											<!-- <select class="form-select" id="trabCodDistrito" name="trabCodDistrito" [(ngModel)]="trabajadores.trabCodDistrito" ></select> -->
+										</div>
+									</div>
+									<div class="col-lg-4">
+										<label for="">DIRECCION</label>
+										<div class="input-group input-group-sm">
+											<input class="form-control" type="text" id="trabDireccion" name="trabDireccion" [(ngModel)]="trabajadores.trabDireccion" placeholder="">
+										</div>
+									</div>
+									
+								</div>
+								<h6 class="mt-3">DATOS DE CONTACTO</h6>
+								<hr>
+								<div class="row mt-2">
+									<div class="col-lg-4">
+										<label for="">EMAIL</label>
+										<div class="input-group input-group-sm">
+											<input class="form-control" type="text" id="trabEmail" name="trabEmail" [(ngModel)]="trabajadores.trabEmail" >
+										</div>
+									</div>
+									<div class="col-lg-4">
+										<label for="">TELEFONO</label>
+										<div class="input-group input-group-sm">
+											<input class="form-control" type="text" id="trabTelf" name="trabTelf" [(ngModel)]="trabajadores.trabTelf">
+										</div>
+									</div>
+									<div class="col-lg-4">
+										<label for="">CARGO</label>
+										<div class="input-group input-group-sm">
+											<!-- <select  class="form-select" id="cargo" name="cargo"  [(ngModel)]="trabajadores.cargo.cargoId" >
+												<option value="1"></option>
+												<option value="2"></option>
+
+											</select> -->
+										</div>
+									</div>	
+								</div>
+								<div class="row mt-2">
+									<div class="col-lg-12">
+										<label for="">OBSERVACION</label>
+										<div class="input-group input-group-sm">
+											<input class="form-control" type="text" id="trabObservacion" id="trabObservacion" >
+										</div>
+									</div>
+								</div>
+
+							</div>
+
+						</form>
+					</div>
+				</div>
+				<!-- <div class="card-footer ">
+					<form action="javascript:void();">
+						<div class="input-group input-group-sm mt-2">
+							<button class="btn btn-outline-light border" type="button">
+								<i class="fas fa-fw fa-angle-double-left"></i>
+							</button>
+							<label class="form-control"></label>
+							<button class="btn btn-outline-light border" type="button">
+								<i class="fas fa-fw fa-angle-double-right"></i>
+							</button>
+						</div>
+					</form>
+				</div> -->
+			</div>
+		</div>
+	</span>
+</div>

@@ -1,0 +1,30 @@
+export class Vehiculo {
+     vehId?:number;
+     vehPadron?:string;
+     vehPlaca?:string;
+     vehClase?:string;
+     vehModelo?:string;
+     vehPropietarioId?:string;
+     vehTarjetaPropiedad?:string;
+     vehPoliza?:string;
+     vehAnioFabricacion?:string;
+     vehNroMotor?:string;
+     vehPeso?:string;
+     vehPesoBruto?:string;
+     vehMarca?:string;
+     vehNroAsientos?:string;
+     vehNroPasajeros?:string;
+     vehTipoCombustible?:string;
+     vehCarroceria?:string;
+     vehColores?:string;
+     vehNroCilindros?:string;
+     vehNroRuedas?:string;
+     vehLongitud?:string;
+     vehAncho?:string;
+     vehAltura?:string;
+     vehCargaUtil?:string;
+     vehEjes?:string;
+     vehFechaRegistro?:string;
+     vehEstado?:string;
+     usuario?:string; 
+}

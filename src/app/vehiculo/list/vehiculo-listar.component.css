@@ -1,0 +1,11 @@
+.PanelMobile {
+    display: none !important;
+}
+@media only screen and (max-width: 767px) {
+    .Panel {
+        display: none !important;
+    }
+    .PanelMobile {
+        display:block !important;
+    }
+  }

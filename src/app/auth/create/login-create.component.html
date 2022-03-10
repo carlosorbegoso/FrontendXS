@@ -1,0 +1,126 @@
+<app-menu></app-menu>
+
+<div class="text-xl-center" *ngIf="''; else loggedOut">
+	<h2>ya has iniciado sesion</h2>
+</div>
+<ng-template #loggedOut>
+	<div class="container mb-2 p-1 " style="border-radius: 5px; margin-top: 52px;">
+		<!-- ENCABEZADO DE PAGINA -->
+		<div class="card ">
+			<div class="car-body ">
+				<div class="input-group input-group-sm ">
+					<button class="btn  mr-1 " type="button">
+						<i class="fas fa-fw fa-list"></i>
+					</button>
+					<label class="form-control ">
+						<a href="javascript:void(0);"><i class="fa fa-fw fa-home"></i> </a>
+						<span class="d-none d-sm-inline">
+							CONTROL /
+						</span>
+	
+						<span class="" id="lblTitulo">USUARIOS</span>
+						<span style="float:right;line-height:20px;">
+							<span class="fa fa-fw fa-globe hidden-xs "></span>
+						</span>
+					</label>
+					<div class="btn-group btn-group-sm">
+						<button class="btn btn-outline-primary border-secondary ml-1 text-dark btn-action"  data-action="nuevo" title="Nuevo" (click)="Nuevo()">
+							<span class="fa fa-fw fa-file" ></span>
+						</button>
+						<button class="btn btn-outline-primary  border-secondary ml-1 text-dark btn-action"
+							routerLink="/usuario/listar" title="Buscar" disabled>
+							<span class="fa fa-fw fa-search"></span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>	
+	<!-- USUARIOS -->
+	<span class="nsPanel">
+		<div class="container-sm p-1">
+			<div class="card">
+				<div class="card-header p-1">
+					<div class="input-group input-group-sm">
+						<button class="btn btn-outline-secondary border-white" type="button" title="">
+							<span class="fas fa-fw fa-user-alt fa-lg"></span>
+						</button>
+						<label class="form-control ">FORMULARIO</label>
+						<button [disabled]="!f.valid" (click)="onRegister()" class="btn btn-outline-primary border-secondary ml-1 text-dark btn-action"  type="button" title="Guardar">
+							<i class="fa fa-fw fa-save"></i>
+						</button>
+					</div>
+				</div>
+
+				<div class="card-body p-2" >
+					<div class="" style="overflow-y: auto;" >
+						<form class="form" #f="ngForm" (ngSubmit)="onRegister()" novalidate  style="height: 70vh;" >
+							<div class="container">
+								<div class="row mt-2">
+									<div class="col-lg-3">
+										<div class="form-group input-group-sm">
+											<label> NOMBRE:</label>
+											<input class="form-control" type="text" placeholder="NOMBRE" name="nombre" id="nombre" [(ngModel)]="nombre" required autocomplete="off" [disabled]=isDisabled />
+										</div>
+									</div>
+									<div class="col-lg-3">
+										<div class="form-group input-group-sm">
+											<label> NOMBRE USUARIO:</label>
+											<input class="form-control"  type="text" placeholder="APELLIDO PATERNO" id="nombreUsuario" name="nombreUsuario" autocomplete="off" [(ngModel)]="nombreUsuario" required [disabled]=isDisabled />
+										</div>
+									</div>
+									<div class="col-lg-4">
+										<div class="form-group input-group-sm">
+											<label> EMAIL:</label>
+											<input class="form-control"  type="email" placeholder="EMAIL"  id="email" name="email" [(ngModel)]="email" required autocomplete="off" [disabled]=isDisabled />
+										</div>
+									</div>
+									
+								</div>
+								<div class="row mt-2">
+									<div class="col-lg-3">
+										<div class="form-group input-group-sm">
+											<label> PASWORD:</label>
+											<input class="form-control"  type="password" placeholder="PASSWORD"  id="password" name="password" [(ngModel)]="password" required autocomplete="off" [disabled]=isDisabled/>
+										</div>
+									</div>
+									<div class="col-lg-3">
+										<div class="form-group input-group-sm">
+											<label> TIPO USUARIO</label>
+											<div class="form-check form-check-inline"></div>
+											<select class="form-select" [disabled]=isDisabled id="authorities"  name="authorities" [(ngModel)]="roles">
+												<option value="">SELECCIONE</option>
+												<option value="admin">ADMIN</option>
+												<option value="cajero">CAJERO</option>
+												<option value="pintor">PINTOR</option>
+											
+
+											</select>
+								
+										</div>
+									</div>
+								</div>
+
+							</div>
+							<!-- <button class="btn btn btn-primary" [disabled]="!f.valid">registar</button> -->
+
+						</form>
+					</div>
+				</div>
+				<div class="card-footer ">
+					<form action="javascript:void();">
+						<div class="input-group input-group-sm mt-2">
+							<button class="btn btn-outline-light border" type="button">
+								<i class="fas fa-fw fa-angle-double-left"></i>
+							</button>
+							<label class="form-control"></label>
+							<button class="btn btn-outline-light border" type="button">
+								<i class="fas fa-fw fa-angle-double-right"></i>
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</span>
+</ng-template>

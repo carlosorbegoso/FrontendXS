@@ -1,0 +1,85 @@
+
+.center{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.main{
+	width: 100%;
+	height: 15vh;
+	background: black;
+}
+.icon{
+	width: 65px;
+	height: 65px;
+	margin: 20px;
+	cursor: pointer;
+	border-radius: 50px;
+	transition: all .4s;
+}
+.icon:nth-child(1):hover{
+	box-shadow:  0px 10px #1877f2;
+}
+.icon:nth-child(2):hover{
+	box-shadow:  0px 10px #c32aa3;
+}
+.icon:nth-child(3):hover{
+	box-shadow: 0px 10px #25d366;
+}
+.icon:nth-child(4):hover{
+	box-shadow:  0px 10px #1877f2;
+}
+.fa-facebook-f{
+	color:  #1877f2;
+	filter: drop-shadow(10px 10px 10px #1877f2);
+}
+.fa-instagram{
+	color:  #c32aa3;
+	filter: drop-shadow(10px 10px 10px #c32aa3);
+}.fa-whatsapp{
+	color:  #25d366;
+	filter: drop-shadow(10px 10px 10px #25d366);
+}.fa-twitter {
+	color:  #1877f2;
+	filter: drop-shadow(10px 10px 10px #1877f2);
+}
+/* MENUS */
+
+h5.sky-title {
+    color:  #4DB2EE;
+    font-family:'Arial Black';
+    text-decoration:none;
+    text-shadow: 0.1em 0.1em 0.2em black;
+}
+a.sky-nav{
+    color: black;
+    text-shadow: 0.0em 0.1em 0.2em #4DB2EE;
+    font-size: 18px;
+    text-decoration:none;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 2px;
+    transition: background-size .3s;
+}
+.sky-nav:hover,.sky-nav:focus{
+    background-size: 100% 2px;
+}
+a.sky-item{
+    text-decoration:none;
+    color: black;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 2px;
+    transition: background-size .3s;
+    margin-left: 25px;
+
+}
+.sky-item:hover,.sky-item:focus{
+    background-size: 100% 2px;
+}
+
+
+
+

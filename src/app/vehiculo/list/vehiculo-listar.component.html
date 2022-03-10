@@ -1,0 +1,158 @@
+<app-menu></app-menu>
+
+<div class="container mb-2 p-1 " style="border-radius: 5px; margin-top: 52px;" >
+	<div class="card ">
+		<div class="car-body ">
+			<div class="input-group input-group-sm ">
+				<button class="btn  mr-1 " type="button">
+					<i class="fas fa-fw fa-list"></i>
+				</button>
+				<label class="form-control ">
+					<!-- <a href="javascript:void(0);"><i class="fa fa-fw fa-home"></i> </a> -->
+					<!-- <span class="d-none d-sm-inline">
+						CONTROL /
+					</span> -->
+					<span class="" id="lblTitulo">	VEHICULOS</span>
+					<!-- <span style="float:right;line-height:20px;">
+						<span  class="fa fa-fw fa-globe hidden-xs "></span>
+					</span> -->
+				</label>
+				<div class="btn-group btn-group-sm">
+					<button *ngIf="isAdmin" class="btn btn-outline-primary border-secondary ml-1 text-dark btn-action" (click)="nuevo()" title="Nuevo">
+						<span class="fa fa-fw fa-file"></span>
+					</button>
+					<button   class="btn btn-outline-primary  border-secondary ml-1 text-dark btn-action" data-action="buscar"  title="Buscar">
+						<span class="fa fa-fw fa-search"></span>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<span class="Panel" id="vehiculoDesktop">
+	<div class="container-sm p-1" >
+		<div class="card">
+			<div class="card-header p-1">
+				<div class="input-group input-group-sm">
+					<button class="btn btn-outline-secondary border-white mr-1 " type="button" title="" disabled>
+						<span class="fas fa-fw fa-user-alt fa-lg"></span>
+					</button>
+					<label class="form-control text-truncate">BUSCAR</label>
+					<select class="form-select"[(ngModel)]="estado">
+						<option value="0" >selecione</option>
+						<option value="activo" selected>Activo</option>
+						<option value="inactivo" >Inactivo</option>
+						<option value="Inactivo" >Suspendido</option>
+					</select>
+					<button  class="btn btn-outline-warning border-secondary ml-1 text-dark btn-action" (click)="ngOnInit()"  type="button" title="Filtro">
+						<i class="fa fa-fw fa-tasks"></i>
+					</button>
+				</div>
+			</div>
+			
+			<div class="card-body p-2 overflow-auto" style="height: 75vh;">
+				
+				<div class="table-responsive-sm">
+					<table class="table ">
+						<thead>
+							<tr>
+								<th width="1%" style="text-align:center;">#</th>
+								<th width="2%" style="text-align:center;">PADRON</th>
+								<th width="10%" style="text-align:center;">PLACA</th>
+								<th width="25%" style="text-align:center;">MODELO</th>
+								<th width="10%" style="text-align:center;">MARCA</th>
+								<th width="25%" style="text-align:center;">N° ASIENTOS</th>
+								<th width="10%" style="text-align:center;">COMBUSTIBLE</th>
+								<th width="10%" style="text-align:center;">ESTADO</th>
+								<!-- <th scope="col"><i class="fa fa-fw fa-sort"(click)="sort()"></i></th> -->
+							</tr>
+						</thead>
+						<tbody>
+							<tr *ngFor=" let v of vehiculos, let indice=index" class="text-center">
+								<th scope="row">{{+offset+indice+1}}</th>
+								<td >{{ v.vehPadron}}</td>	
+								<td>{{ v.vehPlaca }}</td>
+								<td>{{ v.vehModelo }}  </td>
+								<td> {{ v.vehMarca }} </td>
+								<td>{{ v.vehNroAsientos }}</td>
+								<td>{{ v.vehTipoCombustible }}</td>
+								<td>{{v.vehEstado}}</td>
+								<td>
+									<!-- <button (click)="buscarTrabajador(t)" [name]="t" style="width: 60px" class="btn btn-primary btn-sm"> <i class="fa-solid fa-pencil"></i></button> -->
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="card-footer ">
+				<form action="javascript:void();">
+					<div class="input-group input-group-sm mt-2">
+						<button class="btn btn-outline border" (click)="rewind()" type="button" >
+							<i class="fas fa-fw fa-angle-double-left"></i>
+						</button>
+							<label class="form-control"></label>
+						<button class="btn btn-outline border" (click)="forward()" type="button">
+							<i class="fas fa-fw fa-angle-double-right"></i>
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</span>
+
+<span class="PanelMobile" id="vehiculoMobile">
+	<div class="container-sm p-1" >
+		<div class="card">
+			<div class="card-header p-1">
+				<div class="input-group input-group-sm">
+					<button class="btn btn-outline-secondary border-white mr-1 " type="button" title="" disabled>
+						<span class="fas fa-fw fa-user-alt fa-lg"></span>
+					</button>
+					<label class="form-control text-truncate">BUSCAR</label>
+					<select class="form-select"[(ngModel)]="estado">
+						<option value="0" >selecione</option>
+						<option value="activo" selected>Activo</option>
+						<option value="inactivo" >Inactivo</option>
+						<option value="suspendido" >Suspendido</option>
+					</select>
+					<button class="btn btn-outline-warning border-secondary ml-1 text-dark btn-action"  (click)="ngOnInit()" type="button" title="Filtro">
+						<i class="fa fa-fw fa-tasks"></i>
+					</button>
+				</div>
+			</div>
+			<div class="card-body p-2 overflow-auto" style="height: 70vh;">
+				<ul class="list-group">
+					<li *ngFor=" let v of vehiculos, let indice=index"  class="list-group-item d-flex  align-items-start">
+						<div  class="vr text-success opacity-100 " [ngClass]="v.vehEstado == 'activo'? 'vr text-success opacity-100':'vr text-danger opacity-100'"></div>
+						<div class="ms-2-me-auto ms-2" >
+							<div class="fw-bold">	{{ v.vehPlaca }} 	{{ v.vehModelo }}  {{ v.vehMarca }}</div>
+							<b>N° Asientos:</b> 
+							{{v.vehNroAsientos}}
+							 <b>| doc :{{v.vehTarjetaPropiedad}} </b>
+                             <!-- {{t.trabNroDoc}} <b> tel: </b>{{t.trabTelf}} -->
+						</div>
+						<span class="badge bg-primary rounded-pill">{{v.vehPadron}}</span>
+					</li>
+				</ul>
+				
+
+			</div>
+			<div class="card-footer ">
+				<form action="javascript:void();">
+					<div class="input-group input-group-sm mt-2">
+						<button class="btn btn-outline border" (click)="rewind()" type="button" >
+							<i class="fas fa-fw fa-angle-double-left"></i>
+						</button>
+							<label class="form-control"></label>
+						<button class="btn btn-outline border" (click)="forward()" type="button">
+							<i class="fas fa-fw fa-angle-double-right"></i>
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</span>

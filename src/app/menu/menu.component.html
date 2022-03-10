@@ -1,0 +1,103 @@
+<div class="shadow-sm p-1 mb-5  navbar-light navbar navbar-light bg-light fixed-top flex-md-row border-botton shadow-sm">
+    <div class="container-fluid" style="text-decoration:none;text-shadow: 0.1em 0.1em 0.2em black">
+        <a class="navbar-brand">
+            <span style="color:#4DB2EE ;font-family:'Arial Black';"> SKYBLUE</span>
+            <span style="color:#aaa;"> | </span>
+            <b style="color:black"> <i class="fa fa-fw fa-user fa-1x"></i> </b>
+            <span style="color:#aaa;"> | </span>
+            <b style="color:black;">{{nombreUsuario}}</b>
+        </a>
+        <form class="d-flex">
+            <h5 class="my-0 mr-md-auto font-weight-normal d-none d-sm-inline">SISTEMA DE CONTROL DE UNIDADES </h5>
+        </form>
+        <form class="d-flex">
+            <nav *ngIf="isLogged" class="my-2 my-md-0 mr-md-3" style="margin-left: 15px;">
+                <a class="text-dark d-sm-inline" data-bs-toggle="offcanvas" href="#offcanvasMenu" role="button"
+                    id="BarraInicio">MENU</a>
+            </nav>
+            <nav *ngIf="!isLogged" class="my-2 my-md-0 mr-md-3" style="margin-left: 15px;">
+                <a class="text-dark d-sm-inline" href="/login" role="button" id="login"><i
+                        class="fas fa-sign-in-alt"></i> </a>
+            </nav>
+            <nav *ngIf="isLogged" class="my-1 my-md-0 mr-md-3">
+                <a class="text-dark d-sm-inline" (click)="onLogOut()" role="button" id="logout"
+                    style="margin-left: 15px;"> <i class="fas fa-door-open"></i></a>
+            </nav>
+        </form>
+    </div>
+</div>
+<!-- ofCanvas -->
+<div class="offcanvas offcanvas-start " tabindex="-1" id="offcanvasMenu">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title sky-title">SKYBLUE</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <div class="row">
+            <div class="col-12 mb-1 btn-outline ">
+                <a class=" sky-nav" href="/"> <i class="fa-solid fa-house"></i> INICIO</a>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 mb-1 btn-outline">
+                <a class="sky-nav" routerLink="/Despacho/despachar"><i class="fa fa-fw fa-bus"></i> PRINCIPAL</a>
+            </div>
+        </div>
+        <div class="row">
+
+            <!-- <div class="col-12 btn-outline-primary">
+              <a class="dropdown-item" href="usuarios.jsp"><i class="fa fa-fw fa-user"></i> USUARIOS</a>
+        </div> -->
+
+
+            <div class="col-12 dropdown btn-outline">
+                <a class="dropdown-toggle sky-nav " type="button" data-bs-toggle="dropdown">
+                    <i class="fas fa-fw fa-user-cog"></i> MANTENIMIETO
+                </a>
+
+
+                <ul class="dropdown-menu border-light container">
+                    <li>
+                        <a class="dropdown mb-1 sky-item" href="/usuario/registrar">
+                            <i class="fa fa-fw fa-users-gear"></i> USUARIOS</a>
+                    </li>
+                    <li>
+                        <a class="dropdown mb-1 sky-item" routerLink="/trabajador/listar">
+                            <i class="fa-solid fa-id-card"></i>
+                            TRABAJADORES
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown mb-1 sky-item" routerLink="/vehiculo/listar">
+                            <i class="fa-solid fa-bus"></i>
+                            VEHICULOS
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown mb-1 sky-item" href="#">
+                            <i class="fa-solid fa-route"></i>
+                            RUTAS VEHICULARES</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <div class="offcanvas-footer">
+        <div class="main center">
+            <div class="icon center">
+                <i class="fab fa-facebook-f fa-2x"></i>
+            </div>
+            <div class="icon center">
+                <i class="fab fa-instagram fa-2x"></i>
+            </div>
+            <div class="icon center">
+                <i class="fab fa-whatsapp fa-2x"></i>
+            </div>
+            <div class="icon center">
+                <i class="fab fa-twitter fa-2x"></i>
+            </div>
+        </div>
+    </div>
+</div>
